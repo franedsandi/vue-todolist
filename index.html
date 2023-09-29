@@ -31,15 +31,9 @@
       <button>Add Me</button>
     </div>
     <div class="task-container">
-      <ul>
-        <li>
-          <span>task da fare</span>
-          <i class="fa-solid fa-xmark"></i>
-        </li>        <li>
-          <span>task da fare</span>
-          <i class="fa-solid fa-xmark"></i>
-        </li>        <li>
-          <span>task da fare</span>
+      <ul v-if="">
+        <li v-for="task in tasks">
+          <span>{{task}}</span>
           <i class="fa-solid fa-xmark"></i>
         </li>
       </ul>
