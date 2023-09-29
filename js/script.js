@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+let taskIdCounter = 1;
 
 createApp({
   data() {
@@ -18,34 +19,55 @@ createApp({
           this.isError = false;
         }, 1500);
       } else {
-        this.tasks.unshift(this.newTask);
+        const newTask = {
+          id: taskIdCounter++,
+          text: this.newTask,
+          done: false
+        };
+        this.tasks.unshift(newTask);
         this.newTask = "";
         this.isError = false;
       }
     },
-    removeTask(index) {
-      const taskElement = document.querySelector(`.task-container ul li:nth-child(${index + 1}) .task`);
-    if (taskElement) {
-      if (taskElement.classList.contains('task-done')) {
-        this.tasks.splice(index, 1);
-        const taskIndex = this.completedTasks.indexOf(index);
-        if (taskIndex !== -1) {
-          this.completedTasks.splice(taskIndex, 1);
-        }
-        } else {
-          this.showRemoveError = true;
-          setTimeout(() => {
-            this.showRemoveError = false;
-          }, 1500);
+    removeTask(id) {
+      let taskIndex = -1;
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          taskIndex = i;
+          break;
         }
       }
-    },
-    toggleTask(index) {
-      if (this.completedTasks.includes(index)) {
-        const taskIndex = this.completedTasks.indexOf(index);
-        this.completedTasks.splice(taskIndex, 1);
+
+      if (taskIndex === -1) return;
+
+      const task = this.tasks[taskIndex];
+      if (task.done) {
+        this.tasks.splice(taskIndex, 1);
+        this.completedTasks.splice(this.completedTasks.indexOf(id), 1);
       } else {
-        this.completedTasks.push(index);
+        this.showRemoveError = true;
+        setTimeout(() => {
+          this.showRemoveError = false;
+        }, 1500);
+      }
+    },
+    toggleTask(id) {
+      let taskIndex = -1;
+      for (let i = 0; i < this.tasks.length; i++) {
+        if (this.tasks[i].id === id) {
+          taskIndex = i;
+          break;
+        }
+      }
+
+      if (taskIndex === -1) return;
+
+      const task = this.tasks[taskIndex];
+      task.done = !task.done;
+      if (task.done) {
+        this.completedTasks.push(id);
+      } else {
+        this.completedTasks.splice(this.completedTasks.indexOf(id), 1);
       }
     }
   }
