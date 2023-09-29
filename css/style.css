@@ -36,6 +36,10 @@ img{
 .new-task button:hover  {
   cursor: pointer;
 }
+.error{
+  color: red;
+  font-size: 1.1rem;
+}
 .task-container{
   background-color: #f5f7f7 ;
   border-radius: 10px ;

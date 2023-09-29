@@ -30,10 +30,12 @@
       <input 
       type="text" 
       placeholder="New Task"
-      v-model="newTask"
+      v-model.trim="newTask"
       @keyup.enter="addNewTask">
       <button @click="addNewTask">Add Me</button>
+      <p v-if="isError" class="error">The new task have to have at least 5 characters</p>
     </div>
+    
     <div class="task-container">
       <ul v-if="tasks.length > 0">
         <li v-for="task in tasks">
