@@ -37,6 +37,7 @@
     </div>
     
     <div class="task-container">
+      <p v-if="showRemoveError" class="error">The task hasn't been done</p>
       <ul v-if="tasks.length > 0">
         <li v-for="(task, index) in tasks">
           <span class="task" @click="toggleTask(index)" :class="{ 'task-done': completedTasks.includes(index) }">{{ task }}</span>
