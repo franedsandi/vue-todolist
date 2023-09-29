@@ -13,6 +13,7 @@ createApp({
   methods:{
     addNewTask(){
       this.tasks.unshift(this.newTask)
+      this.newTask=""
     }
   }
 }).mount ('#app')
