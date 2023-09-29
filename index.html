@@ -27,16 +27,21 @@
       <img src="img/logo.svg" alt="logo">
     </div>
     <div class="new-task">
-      <input type="text" placeholder="New Task">
-      <button>Add Me</button>
+      <input 
+      type="text" 
+      placeholder="New Task"
+      v-model="newTask"
+      @keyup.enter="addNewTask">
+      <button @click="addNewTask">Add Me</button>
     </div>
     <div class="task-container">
-      <ul v-if="">
+      <ul v-if="tasks.length > 0">
         <li v-for="task in tasks">
           <span>{{task}}</span>
           <i class="fa-solid fa-xmark"></i>
         </li>
       </ul>
+      <h3 v-else>There is no task to do</h3>
     </div>
 
   </div>

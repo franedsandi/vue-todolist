@@ -33,6 +33,9 @@ img{
   width: 300px;
   margin-right: 15px;
 }
+.new-task button:hover  {
+  cursor: pointer;
+}
 .task-container{
   background-color: #f5f7f7 ;
   border-radius: 10px ;
