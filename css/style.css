@@ -66,3 +66,9 @@ img{
 .task-container li i:hover {
   color: red;
 }
+.task{
+  cursor: pointer;
+}
+.task-done {
+  text-decoration: line-through;
+}

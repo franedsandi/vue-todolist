@@ -39,7 +39,7 @@
     <div class="task-container">
       <ul v-if="tasks.length > 0">
         <li v-for="(task, index) in tasks">
-          <span>{{task}}</span>
+          <span class="task" @click="toggleTask(index)" :class="{ 'task-done': completedTasks.includes(index) }">{{ task }}</span>
           <i @click="removeTask(index)" class="fa-solid fa-xmark"></i>
         </li>
       </ul>
