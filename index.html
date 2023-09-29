@@ -38,9 +38,9 @@
     
     <div class="task-container">
       <ul v-if="tasks.length > 0">
-        <li v-for="task in tasks">
+        <li v-for="(task, index) in tasks">
           <span>{{task}}</span>
-          <i class="fa-solid fa-xmark"></i>
+          <i @click="removeTask(index)" class="fa-solid fa-xmark"></i>
         </li>
       </ul>
       <h3 v-else>There is no task to do</h3>
