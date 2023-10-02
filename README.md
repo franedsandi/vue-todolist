@@ -23,3 +23,14 @@ Oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il
 3- eliminare il todo solo se è stato svolto, altrimenti esporre un messaggio di errore
 ===
 **step by step:**
+1. recreate the page with html and css making a template to work with vue
+2. create an array of "tasks" with more than one task to do "just for example"
+3. create the function add task in order to add the task that have been written in the input 
+4. give the funtion to the button add me and to the keyup enter
+5. create a funtion remove task , in order to eliminate the task when the x button is pressed
+6. give a condition to add task that if the text is shorter than 5 words the task would not be taken and display a error message
+7. give the error message a timer that it will last 1.5 second on display
+8. use trim to delete the " " in the input in order to avoid empti tasks errors
+9. make a funtion toogletask that will add the class task done to the clicked task ( it will line through the text)
+10. fit a condition in remove task that if the task does not have the class task done it will display an error message and will not remove the task
+11. add another timer to that error message so it will disapear after 1.5 seconds
