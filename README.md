@@ -34,3 +34,6 @@ Oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il
 9. make a funtion toogletask that will add the class task done to the clicked task ( it will line through the text)
 10. fit a condition in remove task that if the task does not have the class task done it will display an error message and will not remove the task
 11. add another timer to that error message so it will disapear after 1.5 seconds
+===
+**extra**
+if there is no task to display a messaage with v-if
